@@ -3,7 +3,7 @@ import 'note_page.dart';
 import '../data/book_list.dart';
 import '../widgets/book_card.dart';
 import 'chatbot_page.dart';
-import 'read_history_page.dart';
+import 'language_detector_page.dart';
 import 'all_books_page.dart'; // Import the AllBooksPage
 
 class HomePage extends StatelessWidget {
@@ -33,7 +33,7 @@ class HomePage extends StatelessWidget {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const ReadHistoryPage()),
+                MaterialPageRoute(builder: (context) => LanguageDetectorPage()),
               );
             },
           ),
@@ -99,10 +99,10 @@ class HomePage extends StatelessWidget {
                     ),
                     _buildNavIcon(
                       context,
-                      icon: Icons.history,
-                      label: 'Riwayat',
+                      icon: Icons.search, // ganti ikon menjadi search
+                      label: 'Detector',
                       color: Colors.white,
-                      page: const ReadHistoryPage(),
+                      page: const LanguageDetectorPage(),
                     ),
                     _buildNavIcon(
                       context,

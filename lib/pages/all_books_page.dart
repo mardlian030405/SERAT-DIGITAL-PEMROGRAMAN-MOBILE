@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../data/book_list.dart'; // Pastikan file ini ada dan berisi daftar books
+import '../data/book_list.dart';
 import '../models/book.dart';
 import '../pages/book_detail_page.dart';
 
@@ -33,9 +33,10 @@ class AllBooksPage extends StatelessWidget {
 
           return GestureDetector(
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(
-                builder: (_) => BookDetailPage(book: book),
-              ));
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => BookDetailPage(book: book)),
+              );
             },
             child: Card(
               shape: RoundedRectangleBorder(

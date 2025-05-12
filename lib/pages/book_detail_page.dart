@@ -9,7 +9,7 @@ class BookDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
-    final coverHeight = screenWidth * 3 / 2; // Rasio 2:3 (lebar:tinggi)
+    final coverHeight = screenWidth * 3 / 2;
 
     return Scaffold(
       appBar: AppBar(title: Text(book.title)),
@@ -26,10 +26,11 @@ class BookDetailPage extends StatelessWidget {
                 child: Image.asset(
                   book.cover,
                   fit: BoxFit.cover, // Crop gambar agar memenuhi container
-                  errorBuilder: (_, __, ___) => Container(
-                    color: Colors.grey[200],
-                    child: const Icon(Icons.book, size: 50),
-                  ),
+                  errorBuilder:
+                      (_, __, ___) => Container(
+                        color: Colors.grey[200],
+                        child: const Icon(Icons.book, size: 50),
+                      ),
                 ),
               ),
             ),
@@ -49,16 +50,10 @@ class BookDetailPage extends StatelessWidget {
                   const SizedBox(height: 8),
                   Text(
                     'By ${book.author}',
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.grey[600],
-                    ),
+                    style: TextStyle(fontSize: 16, color: Colors.grey[600]),
                   ),
                   const SizedBox(height: 16),
-                  Text(
-                    book.content,
-                    style: const TextStyle(fontSize: 16),
-                  ),
+                  Text(book.content, style: const TextStyle(fontSize: 16)),
                 ],
               ),
             ),
