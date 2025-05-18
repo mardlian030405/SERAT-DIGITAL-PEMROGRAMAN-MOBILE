@@ -4,7 +4,8 @@ import '../data/book_list.dart';
 import '../widgets/book_card.dart';
 import 'chatbot_page.dart';
 import 'language_detector_page.dart';
-import 'all_books_page.dart'; // Import the AllBooksPage
+import 'all_books_page.dart';
+import 'drawing_page.dart'; // Tambahkan import untuk halaman menggambar
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -99,7 +100,7 @@ class HomePage extends StatelessWidget {
                     ),
                     _buildNavIcon(
                       context,
-                      icon: Icons.search, // ganti ikon menjadi search
+                      icon: Icons.search,
                       label: 'Detector',
                       color: Colors.white,
                       page: const LanguageDetectorPage(),
@@ -107,9 +108,16 @@ class HomePage extends StatelessWidget {
                     _buildNavIcon(
                       context,
                       icon: Icons.book,
-                      label: 'All Books', // Add AllBooksPage navigation
+                      label: 'All Books',
                       color: Colors.white,
-                      page: const AllBooksPage(), // Navigate to AllBooksPage
+                      page: const AllBooksPage(),
+                    ),
+                    _buildNavIcon(
+                      context,
+                      icon: Icons.edit,
+                      label: 'Drawing',
+                      color: Colors.white,
+                      page: DrawingPage(),
                     ),
                   ],
                 ),
@@ -118,7 +126,7 @@ class HomePage extends StatelessWidget {
 
               // List of Books
               ListView.separated(
-                physics: const NeverScrollableScrollPhysics(), // <- Biar gak scroll sendiri
+                physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
                 itemCount: books.length,
                 itemBuilder: (context, index) => BookCard(book: books[index]),
@@ -184,7 +192,7 @@ class HomePage extends StatelessWidget {
         const SizedBox(height: 8),
         Text(
           label,
-          style: TextStyle(
+          style: const TextStyle(
             fontWeight: FontWeight.w600,
             fontSize: 13,
             color: Colors.white,
