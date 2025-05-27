@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'note_page.dart';
+import 'note_list_page.dart';
 import '../data/book_list.dart';
 import '../widgets/book_card.dart';
 import 'chatbot_page.dart';
@@ -96,7 +96,7 @@ class HomePage extends StatelessWidget {
                       icon: Icons.note_add_outlined,
                       label: 'Catatan',
                       color: Colors.white,
-                      page: const NotePage(),
+                      page: const NoteListPage(),
                     ),
                     _buildNavIcon(
                       context,
@@ -155,7 +155,7 @@ class HomePage extends StatelessWidget {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const NotePage()),
+                MaterialPageRoute(builder: (context) => const NoteListPage()),
               );
             },
             child: const Icon(Icons.note_add, color: Colors.white),

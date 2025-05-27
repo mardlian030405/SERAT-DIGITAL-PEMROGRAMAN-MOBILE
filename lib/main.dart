@@ -6,6 +6,9 @@ import 'providers/note_provider.dart';
 import 'providers/drawing_provider.dart';
 import 'pages/splash_screen.dart';
 import 'pages/home_page.dart';
+import 'pages/note_list_page.dart';
+import 'pages/note_form_page.dart';
+
 
 void main() {
   runApp(
@@ -34,10 +37,11 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white,
         useMaterial3: true,
       ),
-      home: const SplashScreen(), // Menampilkan splash screen terlebih dahulu
+      home: const SplashScreen(),
       routes: {
-        '/home': (context) => const HomePage(), // Ganti dengan halaman utama Anda
-        // Tambah route lain jika perlu
+        '/home': (context) => const HomePage(),
+        '/notes': (context) => const NoteListPage(),
+        '/notes/form': (context) => const NoteFormPage(),
       },
     );
   }

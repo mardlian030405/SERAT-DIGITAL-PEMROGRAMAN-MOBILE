@@ -5,19 +5,32 @@ class ChatBotProvider with ChangeNotifier {
   final List<Map<String, String>> messages = [];
 
   final Map<String, String> _intents = {
-    'rekomendasi': 'Aku rekomendasikan:\n- "Belajar Flutter untuk Pemula" 📘\n- "Rahasia Bisnis Online" 📙\n- "Filsafat Modern untuk Semua" 📗\nMau rekomendasi lainnya? 😊',
-    'buku': 'Beberapa buku menarik:\n📘 Flutter Basics\n📙 Bisnis Online\n📗 Filsafat Modern',
-    'genre': 'Beberapa genre yang tersedia:\n📚 Novel\n💻 Teknologi\n💼 Bisnis\n🎓 Pendidikan\nMau cari buku genre apa nih?',
-    'fitur': 'Di aplikasi ini kamu bisa:\n✨ Baca buku\n🔍 Cari buku\n❤️ Tandai favorit\n📝 Buat catatan pribadi\nCoba semua fiturnya ya!',
-    'referensi': 'Butuh referensi buku? Coba "Flutter Mastery" untuk developer dan "Creative Writing 101" untuk penulis! ✨',
-    'referensi buku': 'Cek "Flutter Mastery" atau "Digital Marketing Guide" 💡',
-    'halo': 'Halo juga! 👋 Apa kabar? Semoga harimu menyenangkan ya!',
-    'hai': 'Hai! 😊 Apa yang bisa aku bantu hari ini?',
-    'assalamualaikum': 'Waalaikumsalam! Semoga harimu diberkahi ya 🌸',
+    'rekomendasi': 'Aku rekomendasikan:\n- "Belajar Flutter" 📘\n- "Pemrograman Dasar" 📙\n- "Pemrograman Website Seri PHP" 📗\nMau rekomendasi lainnya? 😊',
+    'buku': 'Berikut beberapa buku yang tersedia:\n📘 Belajar Flutter\n📙 Pemrograman Dasar\n📗 Python Programming\n📕 PHP\n📓 MATLAB\nTanyakan judul untuk info lengkap!',
+    'genre': 'Beberapa genre yang tersedia:\n💻 Teknologi\n🎓 Pendidikan\n💼 Bisnis\n📚 Pemrograman\nMau cari buku genre apa nih?',
+    'fitur': '''
+Aplikasi ini punya fitur keren:
+📚 Baca Buku – Jelajahi berbagai buku pemrograman.
+📝 Catatan – Tulis ide atau rangkumanmu.
+🎨 Gambar – Ekspresikan dirimu lewat drawing tool.
+🌐 Deteksi Bahasa – Kenali bahasa secara otomatis.
+💬 Chatbot – Tanyakan apapun tentang buku dan fitur.
+🕘 Riwayat – Lihat buku yang pernah kamu baca.
+''',
+    'referensi': 'Berikut referensi buku berdasarkan isi:\n- "Belajar Flutter" oleh Andi Wijaya: Cocok untuk belajar UI & API di Flutter.\n- "Pemrograman Dasar" oleh Budi Santoso: Untuk pemula belajar coding.\n- "MATLAB" oleh Prof. Dr. Sahyar: Ideal untuk mahasiswa teknik.',
+    'referensi buku': 'Coba baca:\n📘 "Belajar Flutter"\n📙 "Pemrograman Dasar"\n📕 "PHP untuk Website"\n📓 "MATLAB untuk Teknik dan Sains"',
+    'flutter': '📘 Buku "Belajar Flutter" oleh Andi Wijaya:\nBahas widget, layout, state, API, dan proyek Flutter. Cocok untuk pemula maupun pengembang.',
+    'pemrograman dasar': '📙 Buku "Pemrograman Dasar" oleh Budi Santoso:\nAjarkan konsep coding: variabel, fungsi, OOP, hingga logika algoritma.',
+    'python': '📗 Buku "Python Programming For Beginners":\nPanduan belajar Python: perulangan, fungsi, dan file handling disertai proyek mini.',
+    'php': '📕 Buku "Pemrograman Website Seri PHP" oleh Rizki Hidayatullah:\nBahas PHP, form, database, login system, dan proyek CRUD.',
+    'matlab': '📓 Buku "MATLAB" oleh Prof. Dr. Sahyar:\nKomputasi numerik dan grafik untuk teknik & sains dengan contoh praktis.',
+    'halo': 'Halo juga! 👋 Ada yang bisa aku bantu hari ini?',
+    'hai': 'Hai! 😊 Apa kabar? Cari buku atau tanya fitur aplikasi yuk!',
+    'assalamualaikum': 'Waalaikumsalam! Semoga harimu berkah dan penuh semangat 🌸',
     'apa kabar': 'Aku baik! 🤖 Semoga kamu juga sehat dan semangat terus ya!',
-    'kabar': 'Aku baik, terima kasih sudah bertanya! 😊',
-    'terima kasih': 'Sama-sama! 🤗 Senang bisa membantu!',
-    'makasih': 'Dengan senang hati! Semoga bermanfaat ya!',
+    'kabar': 'Aku baik, terima kasih sudah tanya! 😊',
+    'terima kasih': 'Sama-sama! Senang bisa membantu 🤗',
+    'makasih': 'Dengan senang hati! 😊 Semoga bermanfaat ya!',
   };
 
   String getBotResponse(String message) {
