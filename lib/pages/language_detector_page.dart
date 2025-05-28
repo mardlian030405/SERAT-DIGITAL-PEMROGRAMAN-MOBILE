@@ -15,21 +15,20 @@ class LanguageDetectorPageState extends State<LanguageDetectorPage> {
   @override
   void initState() {
     super.initState();
-    textController = TextEditingController();  // Inisialisasi controller
+    textController = TextEditingController();
   }
 
   @override
   void dispose() {
-    textController.dispose();  // Pastikan controller dibersihkan saat halaman dibuang
+    textController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     final languageProvider = Provider.of<LanguageDetectorProvider>(context);
-    final themeColor = Colors.indigo.shade600; // Warna aksen elegan
+    final themeColor = Colors.indigo.shade600;
 
-    // Helper function untuk opacity
     Color withOpacity(Color color, double opacity) {
       return color.withAlpha((opacity * 255).toInt());
     }
@@ -38,7 +37,7 @@ class LanguageDetectorPageState extends State<LanguageDetectorPage> {
       appBar: AppBar(
         title: const Text('Deteksi Bahasa Serat'),
         backgroundColor: themeColor,
-        elevation: 0,  // Membuat appBar lebih elegan
+        elevation: 0,
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -57,7 +56,7 @@ class LanguageDetectorPageState extends State<LanguageDetectorPage> {
                 borderRadius: BorderRadius.circular(28),
               ),
               shadowColor: Colors.black.withOpacity(0.4),
-              color: withOpacity(Colors.white, 0.9), // Menggunakan helper function
+              color: withOpacity(Colors.white, 0.9),
               child: Padding(
                 padding: const EdgeInsets.all(24),
                 child: Column(
@@ -103,11 +102,14 @@ class LanguageDetectorPageState extends State<LanguageDetectorPage> {
                     ),
                     const SizedBox(height: 8),
                     Container(
-                      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 12,
+                        horizontal: 16,
+                      ),
                       decoration: BoxDecoration(
-                        color: withOpacity(themeColor, 0.1), // Menggunakan helper function
+                        color: withOpacity(themeColor, 0.1),
                         borderRadius: BorderRadius.circular(16),
-                        border: Border.all(color: withOpacity(themeColor, 0.4)), // Menggunakan helper function
+                        border: Border.all(color: withOpacity(themeColor, 0.4)),
                       ),
                       child: Text(
                         languageProvider.detectedLanguage.isEmpty
@@ -124,7 +126,10 @@ class LanguageDetectorPageState extends State<LanguageDetectorPage> {
                     ElevatedButton.icon(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: themeColor,
-                        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 24,
+                          vertical: 12,
+                        ),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(16),
                         ),
@@ -133,7 +138,7 @@ class LanguageDetectorPageState extends State<LanguageDetectorPage> {
                       label: const Text(
                         'Bersihkan Teks',
                         style: TextStyle(
-                          color: Colors.white, // Warna teks tombol
+                          color: Colors.white,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
