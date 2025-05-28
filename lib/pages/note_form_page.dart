@@ -51,49 +51,84 @@ class _NoteFormPageState extends State<NoteFormPage> {
         );
         await NoteDatabase.instance.create(newNote);
       }
-      Navigator.of(context).pop(true); // memberi sinyal bahwa ada perubahan
+      Navigator.of(context).pop(true);
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[100], // Background lembut
       appBar: AppBar(
-        title: Text(_isEditing ? 'Edit Catatan' : 'Tambah Catatan'),
+        title: Text(
+          _isEditing ? 'Edit Catatan' : 'Tambah Catatan',
+          style: const TextStyle(fontWeight: FontWeight.bold),
+        ),
         backgroundColor: Colors.indigo,
+        elevation: 4,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(20),
         child: Form(
           key: _formKey,
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              const Text(
+                'Judul Catatan',
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+              ),
+              const SizedBox(height: 8),
               TextFormField(
                 controller: _titleController,
-                decoration: const InputDecoration(
-                  labelText: 'Judul',
-                  border: OutlineInputBorder(),
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: Colors.white,
+                  hintText: 'Masukkan judul catatan',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
                 ),
                 validator: (value) => value == null || value.isEmpty ? 'Judul tidak boleh kosong' : null,
               ),
-              const SizedBox(height: 12),
+              const SizedBox(height: 20),
+              const Text(
+                'Isi Catatan',
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+              ),
+              const SizedBox(height: 8),
               TextFormField(
                 controller: _contentController,
-                decoration: const InputDecoration(
-                  labelText: 'Isi Catatan',
-                  border: OutlineInputBorder(),
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: Colors.white,
+                  hintText: 'Tulis isi catatan di sini...',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
                 ),
-                maxLines: 5,
+                maxLines: 6,
                 validator: (value) => value == null || value.isEmpty ? 'Isi catatan tidak boleh kosong' : null,
               ),
-              const SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: _saveNote,
-                style: ElevatedButton.styleFrom(
-                  minimumSize: const Size.fromHeight(50),
+              const SizedBox(height: 30),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton.icon(
+                  onPressed: _saveNote,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.indigo,
+                    padding: const EdgeInsets.symmetric(vertical: 16),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                  ),
+                  icon: const Icon(Icons.save, color: Colors.white),
+                  label: Text(
+                    _isEditing ? 'Update Catatan' : 'Simpan Catatan',
+                    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: Colors.white),
+                  ),
                 ),
-                child: Text(_isEditing ? 'Update' : 'Simpan'),
-              )
+              ),
             ],
           ),
         ),

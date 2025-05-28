@@ -5,7 +5,7 @@ import '../widgets/book_card.dart';
 import 'chatbot_page.dart';
 import 'language_detector_page.dart';
 import 'all_books_page.dart';
-import 'drawing_page.dart'; // Tambahkan import untuk halaman menggambar
+import 'drawing_page.dart'; 
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
